@@ -16,7 +16,7 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden fixed z-50 bg-white flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2`}
       >
         <HeaderButton variant="menu" />
 
@@ -25,11 +25,11 @@ function Navbar({ items, searchbar }: {
           class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Icon id="LogoVnda" width={105} height={28} />
         </a>
 
         <div class="flex gap-1">
-          <HeaderButton variant="search" />
+          <HeaderButton variant="user" />
           <HeaderButton variant="cart" />
         </div>
       </div>

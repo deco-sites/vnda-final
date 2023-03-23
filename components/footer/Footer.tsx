@@ -55,125 +55,101 @@ function FooterContainer(
 }
 
 export interface Props {
-  sections?: Section[];
+  description: string;
+  address: string;
+  email: string;
+  footerItems: Array<{
+    title: string;
+    items: Array<{
+      text: string;
+      url: string;
+    }>;
+  }>;
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer({ description, address, email, footerItems }: Props) {
+  const image = null;
+
+  const socialIcons: AvailableIcons[] = [
+    "Instagram2",
+    "Facebook2",
+    "WhatsApp",
+    "Twitter2",
+    "Vsco2",
+  ];
+
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="relative w-full bg-primary-red flex flex-col divide-y-1 divide-default">
+      <div className="absolute -top-5 right-4">
+        {image
+          ? <div></div>
+          : (
+            <div class="bg-[#C3C3C3] flex justify-center items-center w-[140px] h-[140px] text-black">
+              140 x 140
+            </div>
+          )}
+      </div>
       <div>
         <Container class="w-full flex flex-col divide-y-1 divide-default">
           <FooterContainer>
             <Newsletter />
-          </FooterContainer>
 
-          <FooterContainer>
-            {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
-              {sections.map((section) => (
-                <li>
-                  <div>
-                    <Text variant="heading-3" tone="default-inverse">
-                      {section.label}
-                    </Text>
-
-                    <ul
-                      class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <SectionItem item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              ))}
+            <ul class="flex gap-6 mobile:mb-4">
+              {socialIcons.map((icon) => {
+                return (
+                  <li class="w-8 h-8 bg-white rounded-full flex justify-center items-center">
+                    <button class="text-primary-red">
+                      <Icon id={icon} height={24} width={24} strokeWidth={1} />
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
 
-            {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <Text variant="body" tone="default-inverse">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
+            <div class="outline-white">
+              <p>{description}</p>
+              <p>{address}</p>
+              <p>{email}</p>
+            </div>
 
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
+            <p>{JSON.stringify(footerItems, null, 2)}</p>
+
+            {
+              /* <div class="outline-black">
+              {footerItems.map((item) => {
+                return (
+                  <div class="outline-interactive">
+                    <h4>
+                      <button>{item.title}</button>
+                    </h4>
+                    {item.items.map((subItem) => {
+                      return (
+                        <ul>
                           <li>
-                            <SectionItem item={item} />
+                            <a href={subItem.url}>{subItem.text}</a>
                           </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </Text>
-                </li>
-              ))}
-            </ul>
+                        </ul>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div> */
+            }
           </FooterContainer>
         </Container>
       </div>
 
       <div>
         <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
+          <FooterContainer class="flex w-full">
             <Text
-              class="flex items-center gap-1"
+              class="flex items-center justify-center gap-1 text-[1.2rem]"
               variant="body"
               tone="default-inverse"
             >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
+              Vnda - Tecnologia em E-commerce
             </Text>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
           </FooterContainer>
         </Container>
       </div>
