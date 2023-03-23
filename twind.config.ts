@@ -42,6 +42,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "primary-red": "#B92C38",
       },
       textColor: {
         "default": "#161616",
@@ -52,6 +53,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "primary-red": "#B92C38",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -60,6 +62,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "primary-red": "#B92C38",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -80,6 +83,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-3": "500",
         "menu": "400",
         "button": "700",
+        "medium": "600",
         "body": "400",
         "caption": "400",
         "list-price": "400",
@@ -111,15 +115,16 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
+      montserrat: ["Montserrat", "sans-serif"],
       sans: ["Albert Sans", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      mobile: "360px",
+      tablet: "600px",
+      small: "900px",
+      medium: "1200px",
+      large: "1800px",
     },
   },
   preflight: (preflight) => ({
