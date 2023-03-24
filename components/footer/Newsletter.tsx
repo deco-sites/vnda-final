@@ -15,13 +15,13 @@ function Newsletter() {
           Descrição curta da newsletter em até duas linhas alinhado à esquerda.
         </Text>
       </div>
-      <form class="flex mobile:flex-col tablet:flex-row items-center mobile:gap-4 tablet:gap-2 font-body text-body w-full sm:w-[408px]">
+      <form class="flex mobile:flex-col tablet:flex-row items-center mobile:gap-4 tablet:gap-2 font-body text-[1.2rem] w-full sm:w-[408px]">
         <input
           class="bg-transparent border border-white rounded p-4 text-white placeholder-white mobile:w-full"
           placeholder="Digite seu e-mail..."
         />
         <button
-          class="py-2 px-8 bg-transparent rounded uppercase text-white mobile:w-full border border-white rounded"
+          class="py-2 px-8 bg-transparent rounded uppercase font-medium text-white mobile:w-full border border-white"
           type="button" // prevent form's default behavior
         >
           Enviar

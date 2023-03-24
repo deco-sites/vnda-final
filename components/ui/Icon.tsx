@@ -41,7 +41,9 @@ export type AvailableIcons =
   | "Facebook2"
   | "WhatsApp2"
   | "Twitter2"
-  | "Vsco2";
+  | "Vsco2"
+  | "Leaves"
+  | "Vegan";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

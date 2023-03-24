@@ -4,6 +4,7 @@ import Container from "$store/components/ui/Container.tsx";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
+import Console from "../ui/Console.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -80,12 +81,12 @@ function Footer({ description, address, email, footerItems }: Props) {
 
   return (
     <footer class="relative w-full bg-primary-red flex flex-col divide-y-1 divide-default">
-      <div className="absolute -top-5 right-4">
+      <div className="absolute -top-10 right-4">
         {image
           ? <div></div>
           : (
             <div class="bg-[#C3C3C3] flex justify-center items-center w-[140px] h-[140px] text-black">
-              140 x 140
+              <span class="text-4xl">140 x 140</span>
             </div>
           )}
       </div>
@@ -97,7 +98,7 @@ function Footer({ description, address, email, footerItems }: Props) {
             <ul class="flex gap-6 mobile:mb-4">
               {socialIcons.map((icon) => {
                 return (
-                  <li class="w-8 h-8 bg-white rounded-full flex justify-center items-center">
+                  <li class="w-16 h-16 bg-white rounded-full flex justify-center items-center">
                     <button class="text-primary-red">
                       <Icon id={icon} height={24} width={24} strokeWidth={1} />
                     </button>
@@ -112,6 +113,7 @@ function Footer({ description, address, email, footerItems }: Props) {
               <p>{email}</p>
             </div>
 
+            <Console content={footerItems} />
             <p>{JSON.stringify(footerItems, null, 2)}</p>
 
             {
@@ -142,9 +144,9 @@ function Footer({ description, address, email, footerItems }: Props) {
 
       <div>
         <Container class="w-full">
-          <FooterContainer class="flex w-full">
+          <FooterContainer class="flex items-center justify-center w-full">
             <Text
-              class="flex items-center justify-center gap-1 text-[1.2rem]"
+              class="text-[1.2rem]"
               variant="body"
               tone="default-inverse"
             >

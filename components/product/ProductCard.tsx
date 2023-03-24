@@ -55,7 +55,7 @@ function ProductCard({ product, preload }: Props) {
     <div
       data-deco="view-product"
       id={`product-card-${productID}`}
-      class="w-full group"
+      class="w-full group text-primary-red px-4"
     >
       <a href={url} aria-label="product link">
         <div class="relative w-full">
@@ -93,7 +93,7 @@ function ProductCard({ product, preload }: Props) {
 
         <div class="flex flex-col gap-1 py-2">
           <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
+            class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[1.8rem] font-bold text-current"
             variant="caption"
           >
             {name}
